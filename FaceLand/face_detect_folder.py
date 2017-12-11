@@ -24,7 +24,7 @@ args = vars(ap.parse_args())
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
-flist = glob.glob('{0:s}\*.png'.format(args["folder"]))
+flist = glob.glob('{0:s}/*.png'.format(args["folder"]))
 for image_fname in flist:
 	if os.path.isfile(image_fname):
 		# load the input image, resize it, and convert it to grayscale
