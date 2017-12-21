@@ -1,18 +1,7 @@
-<<<<<<< HEAD
 %
 % Chen, Xiaowu, et al. "Face illumination transfer through edge-preserving filters." Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on. IEEE, 2011.
 % 
 
-=======
-% Perform face relighting based on reference images
-%
-% Jiansheng Chen, Guangda Su, Jinping He, Shenglan Ben, "Face Image 
-% Relighting using Locally Constrained Global Optimization", ECCV'10
-%
-%01-10-10, Jiansheng Chen
-
-% result = img*imgRefA/imgRefB
->>>>>>> d4657bcd0a0b6565b7791cf29e94b22547a02cd0
 function results = relight(img, pt, imgRefA, ptRefA)
     results=struct();
     % morphing the reference images
@@ -47,15 +36,8 @@ function results = relight(img, pt, imgRefA, ptRefA)
     hsv_image(:,:,3) = hsv_image(:,:,3).*mask;
     img_crop = hsv2rgb(hsv_image);
     
-
-    
-    % perform illumination separation 
-    
-<<<<<<< HEAD
+   
     % perform illumination transform using cvpr 2011
-=======
-    % perform illumination transform using eccv 2011
->>>>>>> d4657bcd0a0b6565b7791cf29e94b22547a02cd0
     pt(:,1)=pt(:,1)-left;
     pt(:,2)=pt(:,2)-up;
     light_maskA = cvpr_2011(imgRefA,pt);
@@ -72,8 +54,5 @@ function results = relight(img, pt, imgRefA, ptRefA)
     results.out_img = zeros(size(img));
     results.out_img(rect(2)-1 +(1:size(hsv_image,1)),rect(1)-1+(1:size(hsv_image,2)),:)=hsv2rgb(hsv_image);
     
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> d4657bcd0a0b6565b7791cf29e94b22547a02cd0
+
